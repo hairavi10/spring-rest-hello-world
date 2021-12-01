@@ -1,0 +1,9 @@
+---
+# tasks file for cloudeq_ansible
+- name: Copying the Directory's contents (sub directories/files)
+  become: true 
+  copy:
+    src: /var/lib/jenkins/workspace/
+    dest: /home/jenkins/
+       
+    

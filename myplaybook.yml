@@ -1,4 +1,5 @@
 ---
 - hosts: all
   roles:
-    - cloudeq_ansible
+    - installation_role
+    - deploy_role
