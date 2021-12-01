@@ -18,7 +18,10 @@ pipeline {
             agent{ label "maven_server"}
             steps{
                 sh "cd /home/jenkins/cloudeq-spring/" 
-                sh "mvn spring-boot:run"                 
+                sh "mvn clean package"  
+                sh "cp /home/jenkins/cloudeq-spring/target/*.jar /home/jenkins/"
+                sh "nohup java -jar /home/jenkins/*.jar &"
+                           
             }
         } 
     }
