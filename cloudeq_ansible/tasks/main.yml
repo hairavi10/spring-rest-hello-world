@@ -1,0 +1,8 @@
+---
+# tasks file for cloudeq_ansible
+tasks:
+    - name: install packages in ubuntu
+      apt: 
+        name: "{{ item }}"
+        state: present
+      loop: "{{ package }}"

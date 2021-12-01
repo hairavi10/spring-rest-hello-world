@@ -1,0 +1,4 @@
+---
+# vars file for cloudeq_ansible
+package:
+  - maven
