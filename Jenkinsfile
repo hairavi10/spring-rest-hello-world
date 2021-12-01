@@ -20,7 +20,7 @@ pipeline {
                 sh "cd /home/jenkins/cloudeq-spring/" 
                 sh "mvn clean package"  
                 sh "cp $WORKSPACE/target/*.jar /home/jenkins/"
-                sh "nohup java -jar /home/jenkins/*.jar &"
+                sh "nohup java -jar /home/jenkins/spring-rest-hello-world-1.0.2.jar &"
                            
             }
         } 
