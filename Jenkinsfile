@@ -11,7 +11,6 @@ pipeline {
             steps{
                 sh "ansible -m ping -i $WORKSPACE/inventory all"
                 sh "ansible-playbook -i $WORKSPACE/inventory $WORKSPACE/myplaybook.yml --syntax-check"
-                sh "ansible-playbook -i $WORKSPACE/inventory $WORKSPACE/myplaybook.yml --check"
                 sh "ansible-playbook -i $WORKSPACE/inventory $WORKSPACE/myplaybook.yml"
             }            
         }
