@@ -1,8 +1,30 @@
 ---
 # tasks file for cloudeq_ansible
-- name: install packages in ubuntu
+- name: install dependencies in ubuntu
   apt: 
     name: "{{ item }}"
     update_cache: yes
     state: present
+  loop: "{{ utilities }}"
+- name: add GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+- name: add docker repository to apt
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+- name: install docker
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
   loop: "{{ package }}"
+- name: enable docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  notify: 
+    - restart docker
+        
